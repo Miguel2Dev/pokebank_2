@@ -1,0 +1,390 @@
+/* ==========================
+   RESET E ESTILO BASE
+========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ==========================
+   HEADER
+========================== */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0 2rem;
+    background-color: #FFD76B;
+    position: relative;
+}
+
+.logo-nav {
+    height: 80px;
+}
+
+/* Links centrais */
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-center a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+}
+
+/* Botões do canto direito */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-entrar {
+    background-color: #000000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.link-cadastro {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ==========================
+   SEÇÃO SOBRE
+========================== */
+.sobre {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 9% 7%;
+}
+
+.sobre-texto {
+    flex: 1;
+    text-align: left;
+    padding: 5%;
+}
+
+.pikachu {
+    width: 300px;
+    border: 4px solid;
+    border-radius: 15px;
+}
+
+/* ==========================
+   SEÇÃO SERVIÇOS (CARDS)
+========================== */
+.servicos-container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#n_servico {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card-servico {
+    background: #fff;
+    border-radius: 15px;
+    border: #FFD76B solid;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-servico:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 18px rgba(0,0,0,0.15);
+}
+
+.card-servico i {
+    font-size: 40px;
+    color: #ebba33;
+    margin-bottom: 15px;
+}
+
+/* Responsividade dos cards */
+@media (max-width: 768px) {
+    .cards-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================
+   FORMULÁRIO FALE CONOSCO
+========================== */
+form {
+    padding: 5%;
+}
+
+.form-fale-conosco {
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 2px solid #FFD76B;
+    width: 95%;
+    max-width: 700px;
+    padding: 2rem;
+    margin: 5% auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-fale-conosco h3 {
+    text-align: center;
+    color: #FFD76B;
+    margin-bottom: 1rem;
+}
+
+.form-fale-conosco label {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    color: #333;
+}
+
+.form-fale-conosco input,
+.form-fale-conosco textarea {
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    width: 100%;
+    resize: vertical;
+    transition: 0.3s;
+}
+
+.form-fale-conosco textarea {
+    min-height: 150px;
+}
+
+.form-fale-conosco input:focus,
+.form-fale-conosco textarea:focus {
+    outline: none;
+    border-color: #FFD76B;
+    box-shadow: 0 0 8px rgba(255, 215, 107, 0.5);
+}
+
+.botoes-form {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.form-fale-conosco button {
+    padding: 0.7rem 1.2rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    flex: 1;
+}
+
+.form-fale-conosco button[type="submit"] {
+    background-color: black;
+    color: white;
+}
+
+.form-fale-conosco button[type="submit"]:hover {
+    background-color: #FFC233;
+}
+
+.form-fale-conosco button[type="reset"] {
+    background-color: #FF6B6B;
+    color: #fff;
+}
+
+.form-fale-conosco button[type="reset"]:hover {
+    background-color: #FF4B4B;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+footer {
+    background-color: #FFD76B;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 4rem;
+    color: #000;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-col h5 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.footer-col ul li {
+    margin: 0.3rem 0;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #000;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #ebba33;
+}
+
+.footer-col img {
+    width: 170px;
+    border-radius: 10px;
+}
+
+.footer-redes {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-redes a i {
+    font-size: 1.5rem;
+    color: #000000;
+    transition: 0.3s;
+}
+
+.footer-redes a i:hover {
+    color: #ebba33;
+}
+
+/* ==========================
+   RESPONSIVIDADE GERAL
+========================== */
+
+/* Seção Sobre */
+@media (max-width: 768px) {
+    .sobre {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .pikachu {
+        width: 60%;
+        margin-top: 1rem;
+    }
+
+    .sobre-texto {
+        text-align: center;
+    }
+}
+
+/* Header responsivo */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .logo-nav {
+        height: 60px;
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-center {
+        position: static;
+        transform: none;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-right {
+        justify-content: center;
+        margin-bottom: 0.5rem;
+        gap: 1rem;
+    }
+}
+
+/* Header mobile extremo */
+@media (max-width: 480px) {
+    .nav-center a,
+    .btn-entrar,
+    .link-cadastro {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    header {
+        padding: 0.5rem 1rem;
+    }
+
+    .botoes-form {
+        flex-direction: column;
+    }
+}
+
+/* Footer responsivo */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .footer-col {
+        align-items: center;
+    }
+
+    .footer-col ul {
+        text-align: left;
+    }
+}
