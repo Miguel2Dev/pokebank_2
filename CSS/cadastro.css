@@ -1,0 +1,219 @@
+body {
+    background-color: #FFD76B;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.FormCadastro {
+    background-color: white;
+    width: 35%;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    align-items: center;
+}
+
+.FormCadastro h1 {
+    grid-column: 2;
+    font-size: 55px;
+    color: #2c2107;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px #FFD76B;
+    position: relative;
+    top: 60px;
+}
+
+.FormCadastro img {
+    width: 250px;
+    margin: 0 auto;
+    display: flex;
+    top: 20px;
+}
+
+#input-1{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+    position: relative;
+    right: 100%;
+    top: -35px;
+}
+#input-2{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+    position: relative;
+}
+#input-3{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+    position: relative;
+    position: relative;
+    right: 100%;
+    top: 160px;
+}
+input {
+    width: 90%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #ffcb05;
+    box-shadow: 0 0 5px #ffcb05;
+}
+
+.requisitos_senha {
+    background-color: #fff3c4;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.requisitos_senha strong {
+    display: block;
+    margin-bottom: 8px;
+    color: #000;
+}
+
+.requisitos_senha ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.icon {
+    font-weight: bold;
+    color: red;
+    margin-right: 6px;
+}
+
+.valid {
+    color: green;
+}
+
+.botao-acessar {
+    display: block;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    width: 300px;
+    margin: 25px auto 0;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    right: 50%;
+}
+
+.botao-acessar:hover {
+    background-color: #222;
+}
+/* Estilo do campo de termos */
+.termos {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.termos input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #ffcb05; /* cor amarela do tema */
+}
+
+.termos a {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.termos a:hover {
+    text-decoration: underline;
+}
+
+
+/* Faz o <hr> atravessar todo o formulário */
+hr {
+    width: 100%;
+    border: none;
+    border-top: 3px solid #000000;
+    margin: 25px 0;
+    grid-column: 1 / -1;
+    position: relative;
+    top: -310px;
+}
+
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .FormCadastro {
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    .FormCadastro {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+
+    .FormCadastro img {
+        width: 150px;
+    }
+
+    #input-1,
+    #input-2,
+    #input-3 {
+        right: 0;
+        top: 0;
+        width: 100%;
+        position: relative;
+    }
+
+    .botao-acessar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .FormCadastro {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .FormCadastro h1 {
+        font-size: 28px;
+    }
+
+    input {
+        width: 100%;
+        font-size: 13px;
+        padding: 8px;
+    }
+}

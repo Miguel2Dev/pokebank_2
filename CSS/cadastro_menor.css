@@ -1,0 +1,202 @@
+body {
+    background-color: #FFD76B;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container principal */
+.FormCadastro {
+    background-color: white;
+    width: 35%;
+    height: 600px;
+    margin: 150px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+}
+
+/* Títulos */
+.FormCadastro h1,
+.FormCadastro h3 {
+    grid-column: 2;
+    text-align: center;
+    color: #2c2107;
+    text-shadow: 2px 2px 5px #FFD76B;
+    font-weight: bold;
+}
+
+.FormCadastro h1 {
+    font-size: 20px;
+    position: relative;
+    right: 50%;
+}
+
+.FormCadastro h3 {
+    font-size: 15px;
+    position: relative;
+    right: 50%;
+}
+
+/* Imagens */
+.FormCadastro img {
+    width: 200px;
+    position: relative;
+    top: 180px;
+    margin: 0 auto;
+    display: flex;
+}
+.FormCadastro #gif {
+    width: 150px;
+    position: relative;
+    top: -190px;
+    left: 120%;
+    margin: 0 auto;
+    display: flex;
+}
+
+/* Inputs */
+.input-1, .input-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.input-1{
+    position: relative;
+    right: 95%;
+    top: 20px;
+}
+.input-2{
+    position: relative;
+    top: 30px;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #ffcb05;
+    box-shadow: 0 0 5px #ffcb05;
+}
+
+/* Botão */
+.botao-concluir {
+    display: block;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    width: 300px;
+    margin: 25px auto 0;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    top: 60px;
+    right: 50%;
+}
+
+.botao-concluir:hover {
+    background-color: #222;
+}
+
+/* Termos */
+.termos {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+    position: relative;
+    top: 65px;
+    right: 50%;
+}
+
+.termos input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #ffcb05;
+}
+
+.termos a {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.termos a:hover {
+    text-decoration: underline;
+}
+
+/* Linha divisória */
+hr {
+    width: 100%;
+    border: none;
+    border-top: 3px solid #000000;
+    margin: 25px 0;
+    grid-column: 1 / -1;
+    position: relative;
+    top: -120%;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .FormCadastro {
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    .FormCadastro {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+
+    .FormCadastro img {
+        width: 150px;
+    }
+
+    .inputs {
+        width: 100%;
+    }
+
+    .botao-acessar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .FormCadastro {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .FormCadastro h1 {
+        font-size: 22px;
+    }
+
+    input {
+        width: 100%;
+        font-size: 13px;
+        padding: 8px;
+    }
+}
