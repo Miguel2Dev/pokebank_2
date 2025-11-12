@@ -1,0 +1,234 @@
+body {
+    background-color: #FFD76B;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container principal */
+.FormCadastro {
+    background-color: white;
+    width: 22%;
+    height: auto;
+    min-height: 480px;
+    margin: 150px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Título */
+.FormCadastro h1 {
+    grid-column: 2;
+    text-align: center;
+    color: #2c2107;
+    text-shadow: 2px 2px 5px #FFD76B;
+    font-weight: bold;
+    font-size: 35px;
+    position: relative;
+    right: 50%;
+    top: -45px;
+    transition: all 0.3s ease;
+}
+
+/* Imagem */
+.FormCadastro img {
+    width: 200px;
+    position: relative;
+    top: 10px;
+    margin: 0 auto;
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+/* ========== Inputs ========== */
+.input-1 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+    position: relative;
+    right: -2%;
+    top: 20px;
+    width: 80%;
+}
+
+/* Container de cada input + ícone */
+.input-container {
+    position: relative;
+    width: 70%;
+    margin: 0 auto;
+}
+
+/* Campo de texto */
+.input-container input {
+    width: 100%;
+    padding: 10px 40px 10px 10px; /* espaço pro ícone */
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-container input:focus {
+    border-color: #ffcb05;
+    box-shadow: 0 0 5px #ffcb05;
+}
+
+/* Ícone da senha dentro do input */
+.icone-senha {
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #555;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.icone-senha:hover {
+    color: #000;
+}
+
+/* ========== Botão ========== */
+.botao-acessar {
+    display: block;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    width: 70%;
+    max-width: 300px;
+    margin: 25px auto 0;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    top: 100px;
+    right: 50%;
+    transition: all 0.3s ease;
+}
+
+.botao-acessar:hover {
+    background-color: #222;
+}
+
+/* Linha divisória */
+hr {
+    width: 100%;
+    border: none;
+    border-top: 3px solid #000000;
+    margin: 25px 0;
+    grid-column: 1 / -1;
+    position: relative;
+    top: -95%;
+}
+
+/* ============================= */
+/* ======  Responsividade  ===== */
+/* ============================= */
+
+@media (max-width: 1200px) {
+    .FormCadastro {
+        width: 40%;
+        transform: scale(0.95);
+        transform-origin: top center;
+    }
+    .FormCadastro img { width: 180px; }
+    .botao-acessar { width: 65%; }
+}
+
+@media (max-width: 992px) {
+    .FormCadastro {
+        width: 50%;
+        transform: scale(0.85);
+    }
+    .FormCadastro h1 { font-size: 30px; }
+    .FormCadastro img { width: 160px; }
+    .input-container { width: 80%; }
+    .botao-acessar { width: 60%; }
+}
+
+@media (max-width: 768px) {
+    .FormCadastro {
+        width: 70%;
+        grid-template-columns: 1fr;
+        text-align: center;
+        transform: scale(0.8);
+        transform-origin: top center;
+    }
+    .FormCadastro h1 {
+        position: static;
+        font-size: 28px;
+        margin-top: 10px;
+    }
+    .FormCadastro img {
+        width: 140px;
+        margin-bottom: 10px;
+    }
+    .input-1 {
+        right: 0;
+        top: 0;
+        width: 100%;
+        align-items: center;
+    }
+    .input-container {
+        width: 90%;
+    }
+    .input-container input {
+        width: 100%;
+    }
+    .botao-acessar {
+        width: 90%;
+        position: static;
+        margin-top: 20px;
+    }
+    .icone-senha {
+        right: 12px;
+        font-size: 17px;
+    }
+    hr {
+        position: static;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .FormCadastro {
+        width: 90%;
+        padding: 15px;
+        transform: scale(0.75);
+    }
+    .FormCadastro h1 {
+        font-size: 22px;
+    }
+    .FormCadastro img {
+        width: 120px;
+    }
+    .input-container {
+        width: 100%;
+    }
+    .input-container input {
+        width: 100%;
+        font-size: 13px;
+        padding: 8px 35px 8px 10px;
+    }
+    .icone-senha {
+        right: 8px;
+        font-size: 15px;
+    }
+    .botao-acessar {
+        width: 100%;
+        font-size: 14px;
+    }
+}

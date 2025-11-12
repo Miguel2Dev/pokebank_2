@@ -5,18 +5,23 @@ body {
     padding: 0;
 }
 
+/* Container principal */
 .FormCadastro {
     background-color: white;
-    width: 35%;
-    margin: 20px auto;
+    width: 32%;
+    margin: 50px auto;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     padding: 20px;
     display: grid;
     grid-template-columns: 0.5fr 0.5fr;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
+/* Título */
 .FormCadastro h1 {
     grid-column: 2;
     font-size: 55px;
@@ -26,41 +31,43 @@ body {
     text-shadow: 2px 2px 5px #FFD76B;
     position: relative;
     top: 60px;
+    transition: all 0.3s ease;
 }
 
+/* Imagem */
 .FormCadastro img {
     width: 250px;
     margin: 0 auto;
     display: flex;
+    position: relative;
     top: 20px;
+    transition: all 0.3s ease;
 }
 
-#input-1{
+/* Inputs */
+#input-1, #input-2, #input-3 {
     display: flex;
     flex-direction: column;
     gap: 15px;
     margin-top: 15px;
+}
+
+#input-1 {
+    width: 70%;
     position: relative;
-    right: 100%;
+    right: 70%;
     top: -35px;
 }
-#input-2{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 15px;
+#input-2 {
     position: relative;
 }
-#input-3{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 15px;
+#input-3 {
+    width: 70%;
     position: relative;
-    position: relative;
-    right: 100%;
+    right: 75%;
     top: 160px;
 }
+
 input {
     width: 90%;
     padding: 10px;
@@ -68,6 +75,7 @@ input {
     border-radius: 8px;
     font-size: 14px;
     outline: none;
+    transition: all 0.3s ease;
 }
 
 input:focus {
@@ -75,6 +83,7 @@ input:focus {
     box-shadow: 0 0 5px #ffcb05;
 }
 
+/* Requisitos de senha */
 .requisitos_senha {
     background-color: #fff3c4;
     padding: 15px;
@@ -106,6 +115,7 @@ input:focus {
     color: green;
 }
 
+/* Botão */
 .botao-acessar {
     display: block;
     background-color: black;
@@ -122,12 +132,14 @@ input:focus {
     text-decoration: none;
     position: relative;
     right: 50%;
+    transition: all 0.3s ease;
 }
 
 .botao-acessar:hover {
     background-color: #222;
 }
-/* Estilo do campo de termos */
+
+/* Termos */
 .termos {
     display: flex;
     align-items: center;
@@ -141,7 +153,7 @@ input:focus {
     width: 18px;
     height: 18px;
     cursor: pointer;
-    accent-color: #ffcb05; /* cor amarela do tema */
+    accent-color: #ffcb05;
 }
 
 .termos a {
@@ -154,8 +166,7 @@ input:focus {
     text-decoration: underline;
 }
 
-
-/* Faz o <hr> atravessar todo o formulário */
+/* Linha divisória */
 hr {
     width: 100%;
     border: none;
@@ -166,54 +177,64 @@ hr {
     top: -310px;
 }
 
+/* ============================= */
+/* ======  Responsividade  ===== */
+/* ============================= */
 
-/* Responsividade */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .FormCadastro {
-        width: 70%;
+        width: 50%;
+        transform: scale(0.9);
+        transform-origin: top center;
     }
+    .FormCadastro img { width: 200px; }
+    input { width: 85%; }
+    .botao-acessar { width: 250px; }
+}
+
+@media (max-width: 992px) {
+    .FormCadastro {
+        width: 60%;
+        transform: scale(0.8);
+        transform-origin: top center;
+    }
+    .FormCadastro img { width: 180px; }
+    input { width: 80%; }
+    .botao-acessar { width: 230px; }
 }
 
 @media (max-width: 768px) {
     .FormCadastro {
-        width: 90%;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        padding: 25px;
+        width: 75%;
+        transform: scale(0.7);
+        transform-origin: top center;
     }
+    .FormCadastro h1 { font-size: 40px; top: 40px; }
+    .FormCadastro img { width: 150px; }
+    input { width: 75%; }
+    .botao-acessar { width: 200px; }
+}
 
-    .FormCadastro img {
-        width: 150px;
+@media (max-width: 600px) {
+    .FormCadastro {
+        width: 85%;
+        transform: scale(0.6);
+        transform-origin: top center;
     }
-
-    #input-1,
-    #input-2,
-    #input-3 {
-        right: 0;
-        top: 0;
-        width: 100%;
-        position: relative;
-    }
-
-    .botao-acessar {
-        width: 100%;
-    }
+    .FormCadastro h1 { font-size: 32px; }
+    .FormCadastro img { width: 130px; }
+    input { width: 70%; }
+    .botao-acessar { width: 180px; }
 }
 
 @media (max-width: 480px) {
     .FormCadastro {
         width: 95%;
-        padding: 20px;
+        transform: scale(0.55);
+        transform-origin: top center;
     }
-
-    .FormCadastro h1 {
-        font-size: 28px;
-    }
-
-    input {
-        width: 100%;
-        font-size: 13px;
-        padding: 8px;
-    }
+    .FormCadastro h1 { font-size: 28px; }
+    .FormCadastro img { width: 110px; }
+    input { width: 65%; font-size: 13px; padding: 8px; }
+    .botao-acessar { width: 160px; font-size: 14px; }
 }

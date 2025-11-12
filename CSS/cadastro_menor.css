@@ -17,6 +17,8 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
 /* Títulos */
@@ -49,6 +51,7 @@ body {
     margin: 0 auto;
     display: flex;
 }
+
 .FormCadastro #gif {
     width: 150px;
     position: relative;
@@ -155,48 +158,94 @@ hr {
     top: -120%;
 }
 
-/* Responsividade */
-@media (max-width: 1024px) {
+/* ============================= */
+/* ======  Responsividade  ===== */
+/* ============================= */
+
+@media (max-width: 1200px) {
     .FormCadastro {
-        width: 70%;
+        width: 50%;
+        height: auto;
+    }
+    .FormCadastro img {
+        width: 150px;
+        top: 150px;
+    }
+    .FormCadastro #gif {
+        width: 120px;
+        left: 110%;
+        top: -160px;
+    }
+    input {
+        width: 80%;
+    }
+    .botao-concluir {
+        width: 250px;
+    }
+}
+
+@media (max-width: 992px) {
+    .FormCadastro {
+        width: 60%;
+    }
+    .FormCadastro img {
+        width: 130px;
+        top: 130px;
+    }
+    .FormCadastro #gif {
+        width: 100px;
+        left: 100%;
+        top: -140px;
+    }
+    input {
+        width: 75%;
+    }
+    .botao-concluir {
+        width: 220px;
     }
 }
 
 @media (max-width: 768px) {
     .FormCadastro {
-        width: 90%;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        padding: 25px;
+        width: 80%;
     }
-
     .FormCadastro img {
-        width: 150px;
+        width: 110px;
+        top: 120px;
     }
-
-    .inputs {
-        width: 100%;
+    .FormCadastro #gif {
+        width: 90px;
+        left: 95%;
+        top: -130px;
     }
-
-    .botao-acessar {
-        width: 100%;
+    input {
+        width: 70%;
+    }
+    .botao-concluir {
+        width: 200px;
     }
 }
 
 @media (max-width: 480px) {
     .FormCadastro {
         width: 95%;
-        padding: 20px;
     }
-
-    .FormCadastro h1 {
-        font-size: 22px;
+    .FormCadastro img {
+        width: 90px;
+        top: 100px;
     }
-
+    .FormCadastro #gif {
+        width: 70px;
+        left: 90%;
+        top: -110px;
+    }
     input {
-        width: 100%;
+        width: 65%;
         font-size: 13px;
         padding: 8px;
+    }
+    .botao-concluir {
+        width: 180px;
+        font-size: 14px;
     }
 }
