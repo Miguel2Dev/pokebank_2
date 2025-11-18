@@ -9,55 +9,92 @@
 </head>
 <body>
     <div class="FormCadastro">
-    <div>
-        <img src="../imagens/wall-stickers-for-kids-pikachu.png" alt="Pikachu">
-    </div>
-
-    <div>
-        <h1>Faça Seu<br>Cadastro!</h1>
-
-        <div id="input-1">
-            <input type="text" placeholder="Nome">
-            <input type="text" placeholder="Sobrenome">
+        <div>
+            <img src="../imagens/wall-stickers-for-kids-pikachu.png" alt="Pikachu">
         </div>
 
-        <div id="input-2">
-            <input type="text" placeholder="Informe seu CPF">
-            <input type="email" placeholder="E-mail">
-            <input type="telefone" placeholder="Telefone">
-            <input type="date" placeholder="Data de Nascimento">
-        </div>
+        <div>
+            <h1>Faça Seu<br>Cadastro!</h1>
 
-        <div id="input-3">
-            <input type="password" id="senha" placeholder="Senha">
-            <input type="password" placeholder="Confirmar Senha">
-
-            <div class="termos">
-                <input type="checkbox" id="termos">
-                <label for="termos">
-                    Li e aceito os <a href="#">Termos e Condições de Serviço</a>
-                </label>
+            <div id="input-1">
+                <input type="text" placeholder="Nome">
+                <input type="text" placeholder="Sobrenome">
             </div>
+
+            <div id="input-2">
+                <input type="text" placeholder="Informe seu CPF">
+                <input type="email" placeholder="E-mail">
+                <input type="telefone" placeholder="Telefone">
+                <input type="date" id="dataNascimento" placeholder="Data de Nascimento"> 
+            </div>
+
+            <div id="input-3">
+                <div class="input-eye-wrapper">
+                    <input type="password" id="senha" placeholder="Senha">
+                    <span class="toggle-password" id="toggleSenha">👁️</span> 
+                </div>
+
+                <div class="input-eye-wrapper">
+                    <input type="password" id="confirmarSenha" placeholder="Confirmar Senha">
+                    <span class="toggle-password" id="toggleConfirmarSenha">👁️</span>
+                </div>
+
+                <div class="termos">
+                    <input type="checkbox" id="termos">
+                    <label for="termos">
+                        Li e aceito os <a href="#">Termos e Condições de Serviço</a>
+                    </label>
+                </div>
+            </div>
+
+            <div class="requisitos_senha">
+                <strong>Requisitos da Senha:</strong>
+                <ul>
+                    <li><span class="icon" id="checkLength">❌</span> Deve conter 8 dígitos</li>
+                    <li><span class="icon" id="checkUpper">❌</span> Ao menos uma letra maiúscula</li>
+                    <li><span class="icon" id="checkLower">❌</span> Ao menos uma letra minúscula</li>
+                    <li><span class="icon" id="checkNumber">❌</span> Ao menos um número</li>
+                    <li><span class="icon" id="checkSpecial">❌</span> Ao menos um caractere especial</li>
+                </ul>
+            </div>
+            
+            <a href="#" class="botao-acessar">Acessar</a>
         </div>
 
-        <div class="requisitos_senha">
-            <strong>Requisitos da Senha:</strong>
-            <ul>
-                <li><span class="icon" id="checkLength">❌</span> Deve conter 8 dígitos</li>
-                <li><span class="icon" id="checkUpper">❌</span> Ao menos uma letra maiúscula</li>
-                <li><span class="icon" id="checkLower">❌</span> Ao menos uma letra minúscula</li>
-                <li><span class="icon" id="checkNumber">❌</span> Ao menos um número</li>
-                <li><span class="icon" id="checkSpecial">❌</span> Ao menos um caractere especial</li>
-            </ul>
-        </div>
-        
-        <a href="#" class="botao-acessar">Acessar</a>
+        <hr>
     </div>
 
-    <!-- 🔽 move o <hr> para fora da div acima -->
-    <hr>
-</div>
+    <div id="modalResponsavel" class="modal-oculto">
+        <div class="FormCadastro-modal modal-conteudo"> 
 
+            <div>
+                <h1>Identificamos que você é menor de Idade!</h1>
+                <h3>Por favor, preencha os campos a seguir</h3>
 
+                <div class="input-1">
+                    <input type="text" id="nomeResponsavel" placeholder="Nome do Responsável">
+                    <input type="text" id="sobrenomeResponsavel" placeholder="Sobrenome">
+                </div>    
+                <div class="input-2">
+                    <input type="text" id="cpfResponsavel" placeholder="CPF do Responsável">
+                    <input type="email" id="emailResponsavel" placeholder="E-mail do Responsável">
+                    <input type="tel" id="telefoneResponsavel" placeholder="Telefone do Responsável">
+                    <input type="date" id="dataNascResponsavel" placeholder="Data de Nascimento">
+                </div>
+
+                <div class="termos">
+                    <input type="checkbox" id="termosResponsavel">
+                    <label for="termosResponsavel">
+                        Li e aceito os <a href="#">Termos e Condições de Serviço</a>
+                    </label>
+                </div>
+
+                <a href="#" id="btnConcluirResponsavel" class="botao-concluir">Concluir</a>
+            </div>
+
+            <button type="button" id="fecharModal" class="botao-fechar-modal">X</button>
+            <hr>
+        </div>
+    </div>
 </body>
 </html>

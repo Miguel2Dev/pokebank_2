@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../imagens/icone_aba.jfif" type="image/x-icon">
+    
+    <link rel="stylesheet" href="../CSS/home.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <title>PokéBank</title>
+</head>
+<body>
+
+    <div id="user-sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" id="close-sidebar">&times;</a>
+        
+        <div class="user-info-sidebar">
+            <img src="../imagens/usuario_miguel.jpg" alt="Foto do Usuário" class="user-photo-sidebar">
+            <h3>Miguel Fabiani</h3>
+            <p>Equipe PokeBank</p>
+            <hr>
+        </div>
+
+        <a href="#"><i class="bi bi-gear-fill"></i> Configurações</a>
+        <a href="#"><i class="bi bi-person-circle"></i> Meu Perfil</a>
+        <a href="#"><i class="bi bi-question-circle-fill"></i> Ajuda</a>
+        <a href="#" class="logout-link"><i class="bi bi-box-arrow-right"></i> Sair</a>
+    </div>
+
+    <div id="sidebar-overlay" class="overlay"></div>
+
+    <header>
+        <img class="logo-nav" src="../imagens/ChatGPT Image 23 de set. de 2025, 13_16_17.png" alt="Logo">
+
+        <nav class="nav-center">
+            <a href="home.html"><u>Home</u></a>
+            <a href="#"><u>Sobre</u></a>
+            <a href="#fale-conosco"><u>Contato</u></a>
+        </nav>
+
+        <div class="nav-right">
+            <div class="nav-logged-in" id="open-sidebar-trigger"> 
+                <img src="../imagens/usuario_miguel.jpg" alt="Foto do Usuário" class="user-photo"> 
+                <a href="#" class="user-name">Miguel</a> 
+            </div>
+        </div>
+    </header>
+
+    <div class="sobre">
+        <div class="sobre-texto">
+            <h1>Sobre Nós</h1>
+            <h4>Conheça um pouco sobre nossa História!</h4><br>
+            <p><i>
+                Somos mais que um banco: somos a sua **jornada financeira**!<br><br>
+                Há 15 anos, criamos um espaço pensado para jovens a partir dos 10 anos que querem começar a cuidar do próprio dinheiro de forma divertida, segura e leve.<br><br>
+                Inspirados pelo mundo Pokémon, transformamos cada passo da sua vida financeira em uma aventura: desde abrir a primeira conta até aprender a investir e alcançar seus objetivos. Aqui, você não só compra e economiza, mas também aprende — como treinar sua equipe, só que no caso, seu **time de finanças**.<br><br>
+                Nosso objetivo é mostrar que educação financeira pode ser tão envolvente quanto uma batalha Pokémon. Com a gente, você evolui, conquista badges (metas) e descobre que investir de forma segura pode ser parte da sua diversão diária.<br><br>
+                **Somos o banco onde você cresce, se diverte e evolui.**<br><br>
+            </i></p>
+        </div>
+        <img src="../imagens/pikachu.jpg" alt="Pikachu" class="pikachu">
+    </div>
+
+    <div class="servicos-container">
+        <h1 id="n_servico">Nossos Serviços</h1><br>
+        <div class="cards-wrapper">
+            <div class="card-servico" data-modal-target="modal-conta"> 
+                <i class="bi bi-bank2"></i>
+                <h3>Conta Digital</h3>
+                <p>Abra sua conta grátis e comece sua jornada financeira com segurança.</p>
+            </div>
+            <div class="card-servico" data-modal-target="modal-cartao">
+                <i class="bi bi-credit-card-2-front"></i>
+                <h3>Cartão</h3>
+                <p>Tenha seu cartão personalizado para compras online e presenciais.</p>
+            </div>
+            <div class="card-servico" data-modal-target="modal-investimentos">
+                <i class="bi bi-cash-coin"></i>
+                <h3>Investimentos</h3>
+                <p>Aprenda a investir de forma simples, prática e divertida.</p>
+            </div>
+            <div class="card-servico" data-modal-target="modal-seguranca">
+                <i class="bi bi-shield-lock"></i>
+                <h3>Segurança</h3>
+                <p>Proteção de dados e suporte dedicado 24h para você.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal-conta" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal-close="modal-conta">&times;</span>
+            <h2>Conta Digital - PokéConta ✨</h2>
+            <p>Sua conta 100% digital e gratuita, perfeita para começar a guardar e usar seu dinheiro. Sem taxas e com a cara de um Mestre Pokémon!</p>
+            <ul>
+                <li>Transferências Pix ilimitadas.</li>
+                <li>Depósitos por boleto.</li>
+                <li>Extrato detalhado para acompanhar sua "evolução" financeira.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal-cartao" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal-close="modal-cartao">&times;</span>
+            <h2>Cartão - PokéCard 💳</h2>
+            
+            <div class="cartao-content">
+                <div class="cartao-text">
+                    <p>Seu cartão de débito e crédito (sujeito a análise) personalizado com seu Pokémon favorito! Use online e em lojas físicas.</p>
+                    <ul>
+                        <li>Personalização exclusiva.</li>
+                        <li>Cartão Virtual para mais segurança.</li>
+                        <li>Função débito imediata.</li>
+                    </ul>
+                </div>
+                <img src="../imagens/cartoes.png" alt="Exemplo de Cartões Personalizados PokéBank" class="cartao-img">
+            </div>
+
+            <button class="btn-solicitar-cartao">Solicitar Meu PokéCard Agora!</button>
+
+        </div>
+    </div>
+
+    <div id="modal-investimentos" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal-close="modal-investimentos">&times;</span>
+            <h2>Investimentos - A Arena da Evolução 🚀</h2>
+            <p>Comece a fazer seu dinheiro crescer! Temos opções seguras e simples, como o Tesouro Direto e CDBs, com rendimentos que "evoluem" todo dia.</p>
+            <ul>
+                <li>Simulador de metas (PokéBadges).</li>
+                <li>Investimentos a partir de R$1.</li>
+                <li>Conteúdo educativo (PokéDex Financeira).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal-seguranca" class="modal">
+        <div class="modal-content">
+            <span class="close" data-modal-close="modal-seguranca">&times;</span>
+            <h2>Segurança - O Escudo da Equipe 🛡️</h2>
+            <p>Sua tranquilidade é nossa prioridade. Utilizamos criptografia de ponta e sistemas de proteção avançados para garantir que seu dinheiro e seus dados estejam sempre protegidos.</p>
+            <ul>
+                <li>Acesso via biometria/reconhecimento facial.</li>
+                <li>Notificações em tempo real sobre transações.</li>
+                <li>Suporte 24h por dia, 7 dias por semana.</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <form id="fale-conosco">
+        <div class="form-fale-conosco">
+            <h3>Fale Conosco</h3>
+
+            <label>Nome</label>
+            <input type="text" id="nome" placeholder="Digite Seu Nome" required>
+
+            <label>Sobrenome</label>
+            <input type="text" id="sobrenome" placeholder="Digite Seu Sobrenome">
+
+            <label>E-mail</label>
+            <input type="email" id="email" placeholder="Digite Seu E-mail" required>
+
+            <label>Dúvida/Assunto</label>
+            <textarea id="mensagem" placeholder="Digite sua dúvida ou assunto" required></textarea>
+
+            <div class="botoes-form">
+                <button type="submit">Enviar</button>
+                <button type="reset">Cancelar</button>
+            </div>
+        </div>
+    </form>
+
+    <footer>
+        <div class="footer-col">
+            <img src="../imagens/ChatGPT Image 23 de set. de 2025, 13_16_17.png" alt="Logo Footer">
+        </div>
+
+        <div class="footer-col">
+            <h5>Nossas Redes</h5>
+            <div class="footer-redes">
+                <a href="https://www.instagram.com.br"><i class="bi bi-instagram" title="Instagram"></i></a>
+                <a href="https://www.gmail.com.br"><i class="bi bi-envelope-at-fill" title="Gmail"></i></a>
+                <a href="https://www.whatsapp.com.br"><i class="bi bi-whatsapp" title="Whatsapp"></i></a>
+                <a href="#"><i class="bi bi-telephone-fill" title="Telefone"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <ul>
+                <h5>Confira Novamente</h5>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#fale-conosco">Contatos</a></li>
+                <li><a href="#">Cadastre-se</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <ul>
+                <h5>Ajuda?</h5>
+                <li><a href="#">Contate-nos</a></li>
+                <li><a href="#">Suporte</a></li>
+                <li><a href="#">Dúvidas Frequentes</a></li>
+                <li><a href="#">Sugestões</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="../JS/home.js"></script> 
+
+</body>
+</html>

@@ -37,43 +37,90 @@ senhaInput.addEventListener("input", () => {
 
 
 document.addEventListener("DOMContentLoaded", function() {
+    // Inputs do Formulário Principal
     const cpfInput = document.querySelector('input[placeholder="Informe seu CPF"]');
     const telefoneInput = document.querySelector('input[placeholder="Telefone"]');
+    const senha = document.getElementById('senha');
+    const confirmarSenha = document.getElementById('confirmarSenha'); 
+    const toggleSenha = document.getElementById('toggleSenha');
+    const toggleConfirmarSenha = document.getElementById('toggleConfirmarSenha');
     const botao = document.querySelector('.botao-acessar');
 
-    // ----- MÁSCARA DE CPF -----
-    cpfInput.addEventListener("input", function() {
-        let value = cpfInput.value.replace(/\D/g, "");
+    // **NOVOS INPUTS DO MODAL**
+    const cpfResponsavelInput = document.getElementById('cpfResponsavel');
+    const telefoneResponsavelInput = document.getElementById('telefoneResponsavel');
+
+
+    // ===================================
+    // Lógica de Mostrar/Ocultar Senha (Existente)
+    // ===================================
+    function setupPasswordToggle(inputEl, toggleEl) {
+        if (toggleEl) {
+            toggleEl.textContent = '👁️'; 
+            
+            toggleEl.addEventListener('click', function() {
+                const type = inputEl.getAttribute('type') === 'password' ? 'text' : 'password';
+                inputEl.setAttribute('type', type);
+                
+                if (type === 'text') {
+                    toggleEl.textContent = '🔒';
+                } else {
+                    toggleEl.textContent = '👁️';
+                }
+                inputEl.focus(); 
+            });
+        }
+    }
+
+    setupPasswordToggle(senha, toggleSenha);
+    setupPasswordToggle(confirmarSenha, toggleConfirmarSenha);
+    // ===================================
+
+    // ----- FUNÇÕES DE MÁSCARA REUTILIZÁVEIS -----
+    function aplicarMascaraCPF(input) {
+        let value = input.value.replace(/\D/g, "");
         if (value.length > 11) value = value.slice(0, 11);
 
         if (value.length > 9) {
-            cpfInput.value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, "$1.$2.$3-$4");
+            input.value = value.replace(/(\d{3})(\d{3})(\d{3})(\d{1,2})/, "$1.$2.$3-$4");
         } else if (value.length > 6) {
-            cpfInput.value = value.replace(/(\d{3})(\d{3})(\d{1,3})/, "$1.$2.$3");
+            input.value = value.replace(/(\d{3})(\d{3})(\d{1,3})/, "$1.$2.$3");
         } else if (value.length > 3) {
-            cpfInput.value = value.replace(/(\d{3})(\d{1,3})/, "$1.$2");
+            input.value = value.replace(/(\d{3})(\d{1,3})/, "$1.$2");
         } else {
-            cpfInput.value = value;
+            input.value = value;
         }
-    });
+    }
 
-    // ----- MÁSCARA DE TELEFONE -----
-    telefoneInput.addEventListener("input", function() {
-        let value = telefoneInput.value.replace(/\D/g, "");
+    function aplicarMascaraTelefone(input) {
+        let value = input.value.replace(/\D/g, "");
         if (value.length > 11) value = value.slice(0, 11);
 
         if (value.length > 10) {
-            telefoneInput.value = value.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+            input.value = value.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
         } else if (value.length > 6) {
-            telefoneInput.value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
+            input.value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
         } else if (value.length > 2) {
-            telefoneInput.value = value.replace(/(\d{2})(\d{0,5})/, "($1) $2");
+            input.value = value.replace(/(\d{2})(\d{0,5})/, "($1) $2");
         } else {
-            telefoneInput.value = value;
+            input.value = value;
         }
-    });
+    }
+    // ---------------------------------------------
 
-    // ----- VALIDAÇÃO DE CPF -----
+    // ----- APLICAÇÃO DAS MÁSCARAS (FORMULÁRIO PRINCIPAL) -----
+    cpfInput.addEventListener("input", () => aplicarMascaraCPF(cpfInput));
+    telefoneInput.addEventListener("input", () => aplicarMascaraTelefone(telefoneInput));
+
+    // **NOVO: APLICAÇÃO DAS MÁSCARAS (MODAL RESPONSÁVEL)**
+    if (cpfResponsavelInput) {
+        cpfResponsavelInput.addEventListener("input", () => aplicarMascaraCPF(cpfResponsavelInput));
+    }
+    if (telefoneResponsavelInput) {
+        telefoneResponsavelInput.addEventListener("input", () => aplicarMascaraTelefone(telefoneResponsavelInput));
+    }
+
+    // ----- FUNÇÕES DE VALIDAÇÃO REUTILIZÁVEIS -----
     function validarCPF(cpf) {
         cpf = cpf.replace(/\D/g, '');
         if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
@@ -93,15 +140,38 @@ document.addEventListener("DOMContentLoaded", function() {
         return true;
     }
 
-    // ----- VALIDAÇÃO DE TELEFONE -----
     function validarTelefone(telefone) {
         const numero = telefone.replace(/\D/g, '');
         return numero.length >= 10 && numero.length <= 11;
     }
+    
+    function validarRequisitosSenha() {
+        return checkLength.textContent === "✅" &&
+                checkUpper.textContent === "✅" &&
+                checkLower.textContent === "✅" &&
+                checkNumber.textContent === "✅" &&
+                checkSpecial.textContent === "✅";
+    }
 
-    // ----- EVENTO DE VALIDAÇÃO ANTES DO ENVIO -----
+    // ----- EVENTO DE VALIDAÇÃO ANTES DO ENVIO (FORMULÁRIO PRINCIPAL) -----
     botao.addEventListener("click", function(e) {
-        e.preventDefault(); // impede envio por enquanto
+        e.preventDefault();
+        
+        // 1. Validação de Senhas Iguais
+        if (senha.value !== confirmarSenha.value) {
+            alert("❌ As senhas não coincidem! Digite a mesma senha em ambos os campos.");
+            confirmarSenha.focus();
+            return;
+        }
+        
+        // 2. Validação de Requisitos da Senha
+        if (!validarRequisitosSenha()) {
+            alert("❌ A senha não atende a todos os requisitos listados.");
+            senha.focus();
+            return;
+        }
+
+        // 3. Validação de CPF e Telefone
         const cpfValido = validarCPF(cpfInput.value);
         const telefoneValido = validarTelefone(telefoneInput.value);
 
@@ -117,6 +187,98 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        alert("✅ Cadastro válido! (Aqui você pode enviar para o servidor.)");
+        window.location.replace('../HTML/home.html');
     });
+    // ------------------------------------------------------------------
+
+
+    // ===================================
+    // Lógica para o botão de Concluir do Responsável (Atualizada com Validação)
+    // ===================================
+    const modalResponsavel = document.getElementById('modalResponsavel');
+    const btnConcluirResponsavel = document.getElementById('btnConcluirResponsavel');
+
+    btnConcluirResponsavel.addEventListener('click', function(e) {
+        e.preventDefault(); 
+        
+        const nomeResponsavel = document.getElementById('nomeResponsavel').value;
+        const cpfResponsavel = cpfResponsavelInput.value;
+        const telefoneResponsavel = telefoneResponsavelInput.value;
+        
+        // **NOVO: Validação do CPF e Telefone do Responsável**
+        const cpfResponsavelValido = validarCPF(cpfResponsavel);
+        const telefoneResponsavelValido = validarTelefone(telefoneResponsavel);
+
+        if (!nomeResponsavel) {
+            alert("❌ Por favor, preencha o Nome do responsável.");
+            document.getElementById('nomeResponsavel').focus();
+            return;
+        }
+        
+        if (!cpfResponsavelValido) {
+            alert("❌ CPF do responsável inválido! Verifique e tente novamente.");
+            cpfResponsavelInput.focus();
+            return;
+        }
+
+        if (!telefoneResponsavelValido) {
+            alert("❌ Telefone do responsável inválido! Use o formato (00) 00000-0000.");
+            telefoneResponsavelInput.focus();
+            return;
+        }
+        // FIM DA VALIDAÇÃO DO MODAL
+
+        // Se todas as validações passarem
+        modalResponsavel.classList.add('modal-oculto');
+        alert("Dados do responsável coletados e válidos! Por favor, continue com os outros campos do formulário principal.");
+        // **AQUI: Lógica para armazenar os dados do responsável.**
+    });
+
+});
+
+// Função para calcular a idade com base na data de nascimento
+function calcularIdade(dataNasc) {
+    const hoje = new Date();
+    const nascimento = new Date(dataNasc);
+    
+    let idade = hoje.getFullYear() - nascimento.getFullYear();
+    const mes = hoje.getMonth() - nascimento.getMonth();
+    
+    // Ajusta a idade se o aniversário ainda não passou neste ano
+    if (mes < 0 || (mes === 0 && hoje.getDate() < nascimento.getDate())) {
+        idade--;
+    }
+    return idade;
+}
+
+// ===================================
+// Elementos HTML para Controle do Modal (Existente)
+// ===================================
+const inputDataNascimento = document.getElementById('dataNascimento');
+const modalResponsavel = document.getElementById('modalResponsavel');
+const btnFecharModal = document.getElementById('fecharModal');
+
+// 1. Evento que verifica a idade ao alterar o campo de data de nascimento
+inputDataNascimento.addEventListener('change', function() {
+    const dataDigitada = this.value; 
+    
+    if (dataDigitada) {
+        const idade = calcularIdade(dataDigitada);
+        
+        if (idade < 18) {
+            // Se for menor de 18, exibe o modal
+            modalResponsavel.classList.remove('modal-oculto');
+        } else {
+            // Se for maior ou igual a 18, garante que o modal esteja oculto
+            modalResponsavel.classList.add('modal-oculto');
+        }
+    }
+});
+
+// 2. Evento para fechar o modal
+btnFecharModal.addEventListener('click', function() {
+    modalResponsavel.classList.add('modal-oculto');
+    
+    // Limpa o campo de data de nascimento do menor se o processo for cancelado
+    inputDataNascimento.value = ''; 
 });
