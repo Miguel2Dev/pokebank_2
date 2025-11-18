@@ -1,0 +1,715 @@
+/* ==========================
+    RESET E ESTILO BASE
+========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Evita a rolagem do corpo da página quando o modal ou sidebar estiver aberto */
+.modal-open {
+    overflow: hidden;
+}
+
+/* ==========================
+    HEADER
+========================== */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 0 2rem;
+    background-color: #FFD76B;
+    position: relative;
+}
+
+.logo-nav {
+    height: 80px;
+}
+
+/* Links centrais */
+.nav-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-center a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+}
+
+.nav-center a:hover {
+    color: #000000;
+}
+
+/* Botões do canto direito */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Estilos para o container de usuário logado (GATILHO DA SIDEBAR) */
+.nav-logged-in {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.nav-logged-in:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* ⬅️ MODIFICADO: Imagem do Usuário no Cabeçalho (diminuída) */
+.user-photo {
+    /* Diminuído para 40px */
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    /* Borda mantida na cor preta */
+    border: 3px solid #000000;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.user-name {
+    font-weight: bold;
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.user-name:hover {
+    color: #333;
+}
+
+
+/* ==========================
+    SEÇÃO SOBRE
+========================== */
+.sobre {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 9% 7%;
+}
+
+.sobre-texto {
+    flex: 1;
+    text-align: left;
+    padding: 5%;
+}
+
+.sobre-texto h1 {
+    color: #333; 
+}
+
+.sobre-texto h4 {
+    color: #ebba33; 
+}
+
+.sobre-texto p {
+    line-height: 1.6;
+    color: #555;
+}
+
+.pikachu {
+    width: 300px;
+    border: 4px solid;
+    border-radius: 15px;
+}
+
+
+/* ==========================
+    SEÇÃO SERVIÇOS (CARDS)
+========================== */
+.servicos-container {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#n_servico {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+    border-bottom: 3px solid #FFD76B;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card-servico {
+    background: #fff;
+    border-radius: 15px;
+    border: #FFD76B solid;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; 
+}
+
+.card-servico:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 18px rgba(0,0,0,0.15);
+    background-color: #f7f7f7;
+}
+
+.card-servico i {
+    font-size: 40px;
+    color: #ebba33;
+    margin-bottom: 15px;
+}
+
+.card-servico h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-servico p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* ==========================
+    MODAIS DE SERVIÇOS
+========================== */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0,0,0,0.7);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%; 
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    position: relative;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.modal-content h2 {
+    color: #000000;
+    border-bottom: 2px solid #FFD76B;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.modal-content ul {
+    margin-top: 10px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.modal-content ul li {
+    margin: 8px 0;
+    padding-left: 20px;
+    position: relative;
+    color: #444;
+}
+
+.modal-content ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #ebba33;
+    font-size: 1.2em;
+    top: -2px;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px; 
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ⬅️ NOVO: Estilização específica para o conteúdo do modal de Cartão */
+.cartao-content {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cartao-text {
+    flex: 1;
+}
+
+.cartao-img {
+    width: 150px; /* Tamanho da imagem */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: auto;
+    flex-shrink: 0; /* Impede que a imagem encolha */
+}
+
+/* ⬅️ NOVO: Estilo do Botão Chamativo */
+.btn-solicitar-cartao {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #000000; /* Preto forte */
+    color: #FFD76B; /* Cor de Pokémon (Amarelo) */
+    border: 2px solid #FFD76B;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-solicitar-cartao:hover {
+    background-color: #333333; /* Fundo levemente mais claro no hover */
+    color: white; /* Texto branco no hover */
+}
+
+
+/* ==========================
+    SIDEBAR (MENU LATERAL)
+========================== */
+
+/* Estilo do menu lateral */
+.sidebar {
+    height: 100%;
+    width: 0; /* Começa fechado */
+    position: fixed;
+    z-index: 2000; /* Mais alto que o modal */
+    top: 0;
+    right: 0;
+    background-color: #FFC233; 
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Links do menu lateral */
+.sidebar a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #000000;
+    display: block;
+    transition: 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar a i {
+    margin-right: 10px;
+}
+
+.sidebar a:hover {
+    color: #FFD76B;
+    background-color: #34495e;
+}
+
+.sidebar .logout-link {
+    margin-top: auto; /* Empurra o botão Sair para o rodapé do menu */
+    color: #ff6b6b;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+}
+
+.sidebar .logout-link:hover {
+    background-color: #3e2c2c;
+    color: #ff4b4b;
+}
+
+/* Botão de fechar (X) */
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color: #f1f1f1;
+    border-bottom: none;
+}
+
+.sidebar .closebtn:hover {
+    color: #FFD76B;
+    background-color: transparent;
+}
+
+/* Informações do usuário no topo da sidebar */
+.user-info-sidebar {
+    text-align: center;
+    padding: 20px;
+    color: #f1f1f1;
+}
+
+/* ⬅️ MODIFICADO: Imagem do Usuário na Sidebar (tamanho mantido, mas borda ajustada) */
+.user-photo-sidebar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    /* Borda alterada para usar a cor do tema, mantendo consistência */
+    border: 3px solid #000000; 
+}
+
+.user-info-sidebar h3 {
+    margin-bottom: 5px;
+    color: #000000; /* Corrigido a cor do nome para ser visível no fundo amarelo */
+}
+
+.user-info-sidebar p {
+    font-size: 0.9em;
+    color: #000000;
+}
+
+.user-info-sidebar hr {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 15px 0;
+}
+
+/* Overlay de fundo quando a sidebar está aberta */
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 1500; /* Entre o conteúdo principal e a sidebar */
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    transition: 0.5s;
+    display: none; /* Escondido por padrão */
+}
+
+/* ==========================
+    FORMULÁRIO FALE CONOSCO
+========================== */
+form {
+    padding: 5%;
+}
+
+.form-fale-conosco {
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 2px solid #FFD76B;
+    width: 95%;
+    max-width: 700px;
+    padding: 2rem;
+    margin: 5% auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-fale-conosco h3 {
+    text-align: center;
+    color: #FFD76B;
+    margin-bottom: 1rem;
+}
+
+.form-fale-conosco label {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    color: #333;
+}
+
+.form-fale-conosco input,
+.form-fale-conosco textarea {
+    padding: 0.7rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+    width: 100%;
+    resize: vertical;
+    transition: 0.3s;
+}
+
+.form-fale-conosco textarea {
+    min-height: 150px;
+}
+
+.form-fale-conosco input:focus,
+.form-fale-conosco textarea:focus {
+    outline: none;
+    border-color: #FFD76B;
+    box-shadow: 0 0 8px rgba(255, 215, 107, 0.5);
+}
+
+.botoes-form {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.form-fale-conosco button {
+    padding: 0.7rem 1.2rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    flex: 1;
+}
+
+.form-fale-conosco button[type="submit"] {
+    background-color: black;
+    color: white;
+}
+
+.form-fale-conosco button[type="submit"]:hover {
+    background-color: #FFC233;
+}
+
+.form-fale-conosco button[type="reset"] {
+    background-color: #FF6B6B;
+    color: #fff;
+}
+
+.form-fale-conosco button[type="reset"]:hover {
+    background-color: #FF4B4B;
+}
+
+/* ==========================
+    FOOTER
+========================== */
+footer {
+    background-color: #FFD76B;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 4rem;
+    color: #000;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-col h5 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.footer-col ul li {
+    margin: 0.3rem 0;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #000;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #ebba33;
+}
+
+.footer-col img {
+    width: 170px;
+    border-radius: 10px;
+}
+
+.footer-redes {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-redes a i {
+    font-size: 1.5rem;
+    color: #000000;
+    transition: 0.3s;
+}
+
+.footer-redes a i:hover {
+    color: #ebba33;
+}
+
+/* ==========================
+    RESPONSIVIDADE GERAL
+========================== */
+
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Header responsivo (Tablet) */
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .logo-nav {
+        height: 60px;
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-center {
+        position: static;
+        transform: none;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-right {
+        justify-content: center;
+        margin-bottom: 0.5rem;
+        gap: 1rem;
+        width: 100%; 
+    }
+
+    /* Seção Sobre */
+    .sobre {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .pikachu {
+        width: 60%;
+        margin-top: 1rem;
+    }
+
+    .sobre-texto {
+        text-align: center;
+        padding: 0;
+    }
+    
+    /* Serviços em duas colunas no tablet */
+    .cards-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Modal Content */
+    .modal-content {
+        width: 90%;
+        margin: 10% auto;
+    }
+}
+
+/* Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .nav-center a {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    header {
+        padding: 0.5rem 1rem;
+    }
+
+    .botoes-form {
+        flex-direction: column;
+    }
+    
+    /* Serviços em coluna única no mobile */
+    .cards-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    /* Footer responsivo */
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .footer-col {
+        align-items: center;
+    }
+
+    .footer-col ul {
+        text-align: center;
+    }
+
+    /* Ajuste para Sidebar no mobile */
+    .sidebar {
+        max-width: 80%;
+    }
+
+    /* ⬅️ NOVO: Responsividade do modal de cartão para telas menores */
+    .cartao-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .cartao-img {
+        width: 80%;
+        max-width: 200px;
+        margin-top: 15px;
+    }
+}

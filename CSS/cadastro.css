@@ -5,7 +5,7 @@ body {
     padding: 0;
 }
 
-/* Container principal */
+/* Container principal (Formulário do menor) */
 .FormCadastro {
     background-color: white;
     width: 32%;
@@ -52,6 +52,7 @@ body {
     margin-top: 15px;
 }
 
+/* ESTILOS DE POSICIONAMENTO COMPLEXOS - Aplicáveis APENAS ao formulário principal */
 #input-1 {
     width: 70%;
     position: relative;
@@ -67,6 +68,36 @@ body {
     right: 75%;
     top: 160px;
 }
+
+/* * NOVO CSS: Estilização do Toggle de Senha 
+ * Note que #input-3 já é um flex container vertical, mas os wrappers farão a mágica.
+*/
+.input-eye-wrapper {
+    position: relative; 
+    display: inline-block; 
+    width: 100%; 
+}
+
+/* O input em si deve ter um padding no lado direito para não cobrir o ícone */
+.input-eye-wrapper input {
+    padding-right: 35px; /* Dê espaço para o ícone */
+    width: 100%; /* Ocupa a largura do wrapper */
+    box-sizing: border-box; /* Garante que padding/border não aumentem a largura total */
+}
+
+/* Estilo e posicionamento do ícone */
+.toggle-password {
+    position: absolute;
+    top: 50%; /* Centraliza verticalmente */
+    right: 15px; /* Distância da borda direita */
+    transform: translateY(-50%); /* Ajuste fino vertical */
+    cursor: pointer;
+    user-select: none; /* Impede a seleção do texto do ícone */
+    color: #888; /* Cor discreta */
+    font-size: 1.1em;
+    z-index: 10; /* Garante que o ícone esteja acima do input */
+}
+/* FIM DO NOVO CSS */
 
 input {
     width: 90%;
@@ -178,37 +209,25 @@ hr {
 }
 
 /* ============================= */
-/* ======  Responsividade  ===== */
+/* ======  Responsividade Geral  ===== */
 /* ============================= */
 
 @media (max-width: 1200px) {
-    .FormCadastro {
-        width: 50%;
-        transform: scale(0.9);
-        transform-origin: top center;
-    }
+    .FormCadastro { width: 50%; transform: scale(0.9); transform-origin: top center; }
     .FormCadastro img { width: 200px; }
     input { width: 85%; }
     .botao-acessar { width: 250px; }
 }
 
 @media (max-width: 992px) {
-    .FormCadastro {
-        width: 60%;
-        transform: scale(0.8);
-        transform-origin: top center;
-    }
+    .FormCadastro { width: 60%; transform: scale(0.8); transform-origin: top center; }
     .FormCadastro img { width: 180px; }
     input { width: 80%; }
     .botao-acessar { width: 230px; }
 }
 
 @media (max-width: 768px) {
-    .FormCadastro {
-        width: 75%;
-        transform: scale(0.7);
-        transform-origin: top center;
-    }
+    .FormCadastro { width: 75%; transform: scale(0.7); transform-origin: top center; }
     .FormCadastro h1 { font-size: 40px; top: 40px; }
     .FormCadastro img { width: 150px; }
     input { width: 75%; }
@@ -216,11 +235,7 @@ hr {
 }
 
 @media (max-width: 600px) {
-    .FormCadastro {
-        width: 85%;
-        transform: scale(0.6);
-        transform-origin: top center;
-    }
+    .FormCadastro { width: 85%; transform: scale(0.6); transform-origin: top center; }
     .FormCadastro h1 { font-size: 32px; }
     .FormCadastro img { width: 130px; }
     input { width: 70%; }
@@ -228,13 +243,158 @@ hr {
 }
 
 @media (max-width: 480px) {
-    .FormCadastro {
-        width: 95%;
-        transform: scale(0.55);
-        transform-origin: top center;
-    }
+    .FormCadastro { width: 95%; transform: scale(0.55); transform-origin: top center; }
     .FormCadastro h1 { font-size: 28px; }
     .FormCadastro img { width: 110px; }
     input { width: 65%; font-size: 13px; padding: 8px; }
     .botao-acessar { width: 160px; font-size: 14px; }
+}
+
+/* ================================================= */
+/* --- Estilos para o Modal do Responsável (Corrigido e Isolado) --- */
+/* ================================================= */
+
+/* 1. Oculta o modal por padrão */
+.modal-oculto {
+    display: none !important; 
+}
+
+/* 2. Estilo para sobrepor a tela (fundo escuro) */
+#modalResponsavel {
+    position: fixed;
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.85); 
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    padding: 10px; 
+}
+
+/* 3. Estiliza o conteúdo do modal (NOVA CLASSE DE ISOLAMENTO) */
+.FormCadastro-modal {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    max-width: 500px; /* Largura máxima ideal para um formulário de modal */
+    width: 95%; 
+    box-sizing: border-box;
+    position: relative;
+    
+    /* Redefinindo o layout do modal para um fluxo simples e empilhado (melhor para modal) */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    gap: 15px;
+    
+    /* ZERA POSICIONAMENTO E GRID HERDADOS */
+    margin: 0 auto;
+}
+
+/* Ajusta o título dentro do modal */
+.FormCadastro-modal h1 {
+    grid-column: auto;
+    font-size: 35px;
+    top: 0;
+    text-shadow: 2px 2px 5px #FFD76B;
+    margin-bottom: 10px;
+    position: static; /* Remove o posicionamento relativo/top */
+}
+
+/* Ajusta a imagem dentro do modal */
+.FormCadastro-modal img {
+    width: 150px; 
+    top: 0;
+    margin-bottom: 10px;
+    position: static; /* Remove o posicionamento relativo/top */
+}
+
+/* Garante que o gif apareça no modal */
+.FormCadastro-modal #gif {
+    width: 100px;
+    margin: 10px auto;
+}
+
+/* Ajusta as áreas de input dentro do modal (remove posicionamentos complexos) */
+.FormCadastro-modal .input-1,
+.FormCadastro-modal .input-2 {
+    width: 100%;
+    position: static; /* Remove o posicionamento complexo */
+    right: auto;
+    top: auto;
+    margin-top: 5px;
+    gap: 10px;
+}
+
+/* Faz com que o input-1 (Nome/Sobrenome) do responsável se apresentem lado a lado em desktop */
+.FormCadastro-modal .input-1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.FormCadastro-modal .input-1 input {
+    width: 50%;
+    flex: 1; 
+}
+
+/* Input geral no modal para ocupar 100% do container */
+.FormCadastro-modal input {
+    width: 100%;
+    box-sizing: border-box; /* Garante que o padding não estoure a largura */
+}
+
+/* Linha divisória dentro do modal */
+.FormCadastro-modal hr {
+    position: static;
+    margin: 20px 0;
+    border-top: 1px solid #ddd;
+}
+
+/* Botão de Concluir (ajustado para o fluxo do modal) */
+.FormCadastro-modal .botao-concluir {
+    display: block;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 8px;
+    width: 250px;
+    margin: 15px auto 0;
+    text-align: center;
+    text-decoration: none;
+    position: static; /* Remove o posicionamento complexo */
+}
+
+
+/* Botão de Fechar no canto */
+.botao-fechar-modal {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FF0000; 
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+}
+
+.botao-fechar-modal:hover {
+    color: #A00000;
+}
+
+/* --- Ajustes de Responsividade Final para o Modal --- */
+@media (max-width: 550px) {
+    /* Faz os inputs lado a lado do responsável (input-1) se empilharem em telas menores */
+    .FormCadastro-modal .input-1 {
+        flex-direction: column; 
+        gap: 5px;
+    }
 }
